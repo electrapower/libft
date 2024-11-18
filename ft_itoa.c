@@ -54,7 +54,7 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-
+/*
 #include <stdio.h>
 #include <stdlib.h> // malloc + free
 
@@ -85,4 +85,4 @@ int main(void)
     free(result5);
 
     return 0;
-}
+}*/
