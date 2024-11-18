@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 18:02:20 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/14 18:30:50 by asalniko         ###   ########.fr       */
+/*   Created: 2024/11/11 18:02:08 by asalniko          #+#    #+#             */
+/*   Updated: 2024/11/11 18:05:27 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-/*
-void	bzero(void *s, size_t n)
+void	ft_putstr(char *str, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-		((unsigned char *)s)[i++] == 0;
-}
-*/
-void	*ft_calloc(size_t count, size_t size)
-{
-	char	*array;
-
-	if (count != 0 && size > SIZE_MAX / count)
-		return (NULL);
-	array = malloc(count * size);
-	if (array == NULL)
-		return (NULL);
-	ft_bzero(array, count * size);
-	return (array);
+	if (!str)
+		return ;
+	while (*str)
+	{
+		write(fd, str, 1);
+		str++;
+	}
 }

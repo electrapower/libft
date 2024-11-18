@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 18:02:20 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/14 18:30:50 by asalniko         ###   ########.fr       */
+/*   Created: 2024/11/12 18:41:54 by asalniko          #+#    #+#             */
+/*   Updated: 2024/11/12 20:39:55 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-void	bzero(void *s, size_t n)
-{
-	size_t	i;
+void	ft_putnbr_fd(int n, int fd)
 
-	i = 0;
-	while (i < n)
-		((unsigned char *)s)[i++] == 0;
-}
-*/
-void	*ft_calloc(size_t count, size_t size)
 {
-	char	*array;
-
-	if (count != 0 && size > SIZE_MAX / count)
-		return (NULL);
-	array = malloc(count * size);
-	if (array == NULL)
-		return (NULL);
-	ft_bzero(array, count * size);
-	return (array);
+	if (n == -2147483648)
+	{
+		ft_putchar_fd ('-', fd);
+		ft_putchar_fd ('2', fd);
+		ft_putnbr_fd (147483648, fd);
+	}
+	else if (n < 0)
+	{
+		ft_putchar_fd ('-', fd);
+		n = -n;
+		ft_putnbr_fd (n, fd);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd (n / 10, fd);
+		ft_putnbr_fd (n % 10, fd);
+	}
+	else
+		ft_putchar_fd (n + 48, fd);
 }

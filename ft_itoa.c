@@ -1,36 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 18:02:20 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/14 18:30:50 by asalniko         ###   ########.fr       */
+/*   Created: 2024/11/14 15:52:29 by asalniko          #+#    #+#             */
+/*   Updated: 2024/11/14 16:32:28 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-void	bzero(void *s, size_t n)
+int	count_digits(long n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < n)
-		((unsigned char *)s)[i++] == 0;
+	if (n <= 0)
+		i = 1;
+	while (n)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
 }
-*/
-void	*ft_calloc(size_t count, size_t size)
-{
-	char	*array;
 
-	if (count != 0 && size > SIZE_MAX / count)
+char	*ft_itoa(int n)
+{
+	long	num;
+	int		len;
+	char	*str;
+
+	num = n;
+	len = count_digits(num);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	array = malloc(count * size);
-	if (array == NULL)
-		return (NULL);
-	ft_bzero(array, count * size);
-	return (array);
+	str[len] = '\0';
+	if (num == 0)
+		str[0] = '0';
+	else if (num < 0)
+	{
+		str[0] = '-';
+		num = -num;
+	}
+	while (num)
+	{
+		len--;
+		str[len] = num % 10 + '0';
+		num = num / 10;
+	}
+	return (str);
 }
