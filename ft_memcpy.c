@@ -45,5 +45,4 @@ int main()
 	char *custom = ft_memcpy(dst, src, i);
 	printf("string after ft_memcpy: %s\n", custom);
 	return (0);
-}
-*/
+}*/
