@@ -12,6 +12,21 @@
 
 #include "libft.h"
 
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (!dst && !src)
+		return (NULL);
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dst);
+}
+
 void	*ft_memmove(void *dst, const void *src, size_t len)
 
 {
@@ -30,7 +45,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		char_dst[len] = char_src[len];
 	return (dst);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -38,7 +53,7 @@ int main(void)
 {
     // test1 - // space in enough
     char src1[] = "Hello, World!";
-    char dst1[20]; 
+    char dst1[20] = {0};
     printf("Before ft_memmove (non-overlapping): src = \"%s\", dst = \"%s\"\n", src1, dst1);
     ft_memmove(dst1, src1, 13); // copy 13 bytes (including \0)
     printf("After ft_memmove (non-overlapping): src = \"%s\", dst = \"%s\"\n\n", src1, dst1);
@@ -70,3 +85,4 @@ int main(void)
 
     return 0;
 }
+*/
