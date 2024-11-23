@@ -27,7 +27,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -58,4 +58,4 @@ int main(void)
     printf("After ft_memset: buffer4 = \"%s\"\n", buffer4);
 
     return 0;
-}
+}*/
