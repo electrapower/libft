@@ -13,9 +13,8 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
         i++;
     }
 }
-
+/*
 #include <stdio.h>
-#include <ctype.h>
 
 int	ft_toupper(int c)
 {
@@ -39,4 +38,4 @@ int main(void)
     printf("After: %s\n", str);
 
     return 0;
-}
+}*/
