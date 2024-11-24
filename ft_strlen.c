@@ -23,3 +23,16 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+
+int	main()
+{
+	char *str = "STRING";
+	char *str2 = "";
+	printf("strlen: %ld\t ft_strlen: %ld\n", strlen(str), ft_strlen(str));
+	printf("strlen: %ld\t ft_strlen: %ld\n", strlen(str2), ft_strlen(str2));
+	return (0);
+}
+*/
