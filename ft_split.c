@@ -74,7 +74,7 @@ char    **ft_split(char const *s, char c)
     splitted[i] = NULL;
     return (splitted);
 }
-/*
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -98,4 +98,4 @@ int main(void)
     free(result);
 
     return (0);
-}*/
+}
