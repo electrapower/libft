@@ -13,7 +13,19 @@
 #include <unistd.h>
 #include "libft.h"
 
-void	ft_putstr(char *str, int fd)
+void	ft_putendl_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
+	write(fd, "\n", 1);
+}
+
+void	ft_putstr_fd(char *str, int fd)
 {
 	if (!str)
 		return ;
@@ -22,4 +34,13 @@ void	ft_putstr(char *str, int fd)
 		write(fd, str, 1);
 		str++;
 	}
+}
+
+#include <stdio.h>
+
+int main()
+{
+	ft_putendl_fd("print string and newline", 1);
+	ft_putstr_fd("print string and no newline", 1);
+	return(0);
 }
