@@ -12,22 +12,48 @@
 
 #include "libft.h"
 
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*copy;
-	
+	size_t	i;
+	size_t	s_len;
+	char	*str;
+
 	if (!s)
 		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	if (start + len > ft_strlen(s))
-		return (ft_strdup(s + start));
-	copy = malloc(len + 1);
-	if (!copy)
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+	{
+		str = malloc(1);
+		if (!str)
+			return (NULL);
+		str[0] = '\0';
+		return (str);
+	}
+	if (len > s_len - start)
+		len = s_len - start;
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	ft_memcpy(copy, s + start, len);
-	copy[len] = '\0';
-	return (copy);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 /*
 #include <stdio.h>
@@ -37,5 +63,4 @@ int main()
 	char str[12] = "blablabloblo";
 	printf("\"%s\", after ft_substr - \"%s\"\n", str, ft_substr(str, 3, 3));
 	return (0);	
-}
-*/
+}*/
