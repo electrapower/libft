@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <stddef.h>
 
 /* ---------------	LISTS		--------------- */
 typedef struct s_list
