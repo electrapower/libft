@@ -44,7 +44,6 @@ char    **ft_split(char const *s, char c)
     char    **splitted;
     int     i;
     int     words;
-    int     cleanup;
     
     if (!s)
         return (NULL);
