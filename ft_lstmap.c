@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			return (newlst);
 		}
 		ft_lstadd_back(&newlst, new);
-		lstiteri = lstiteri -> next;
+		lstiteri = lstiteri->next;
 	}
 	return (newlst);
 }

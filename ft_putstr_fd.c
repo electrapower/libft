@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
 		return ;
@@ -22,25 +21,26 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, s, 1);
 		s++;
 	}
-	write(fd, "\n", 1);
 }
+/*
+#include "libft.h"
 
-void	ft_putstr_fd(char *str, int fd)
+int main(void)
 {
-	if (!str)
-		return ;
-	while (*str)
-	{
-		write(fd, str, 1);
-		str++;
-	}
-}
+    // stdout
+    ft_putstr_fd("Hello, World!", 1);
+    ft_putstr_fd("\n", 1);
 
-#include <stdio.h>
+    // stderr
+    ft_putstr_fd("This is an error message.", 2);
+    ft_putstr_fd("\n", 2);
 
-int main()
-{
-	ft_putendl_fd("print string and newline", 1);
-	ft_putstr_fd("print string and no newline", 1);
-	return(0);
-}
+    // empty string
+    ft_putstr_fd("", 1);
+    ft_putstr_fd("\n", 1);
+
+    // new line symbols
+    ft_putstr_fd("Line1\nLine2\nLine3", 1);
+
+    return (0);
+}*/
