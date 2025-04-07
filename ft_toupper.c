@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:23:02 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/11 17:23:12 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:37:33 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,12 @@ int	ft_toupper(int c)
 /*
 #include <stdio.h>
 
-int main(void)
+int	main(void)
 {
-    char test_chars[] = {'A', 'Z', 'a', 'z', '0', '!', '@', 'M', 'm'};
-    int i = 0;
-
-    printf("testing ft_toupper:\n");
-    while (i < sizeof(test_chars) / sizeof(test_chars[0]))
-    {
-        char original = test_chars[i];
-        char converted = ft_toupper(original);
-        printf("Original: %c (%d) -> Uppercase: %c (%d)\n", original, original, converted, converted);
-        i++;
-    }
-
-    return 0;
-}*/
+	printf("toupper(a): %c\n", ft_toupper('a')); // A
+	printf("toupper(z): %c\n", ft_toupper('z')); // Z
+	printf("toupper(A): %c\n", ft_toupper('A')); // A
+	printf("toupper(5): %c\n", ft_toupper('5')); // 5
+	return (0);
+}
+*/

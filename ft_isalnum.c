@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:35:53 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/12 18:39:15 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:20:58 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,19 @@ int	ft_isalnum(int c)
 }
 /*
 #include <stdio.h>
-#include <stdbool.h> 
 
-int main(void)
+int	main(void)
 {
-    char test1 = 'A';
-    char test2 = 'z';
-    char test3 = '5';
-    char test4 = '@';
-    char test5 = ' ';
-    char test6 = 127;   // ASCII 127 (DEL)
+	char	test_chars[] = {'A', 'z', '5', '%', ' ', '\n', '0', 'g', '!', 'Z'};
+	int		i = 0;
 
-    printf("Test 1: '%c' -> %s\n", test1, (bool)ft_isalnum(test1) ? "true" : "false");
-    printf("Test 2: '%c' -> %s\n", test2, (bool)ft_isalnum(test2) ? "true" : "false");
-    printf("Test 3: '%c' -> %s\n", test3, (bool)ft_isalnum(test3) ? "true" : "false");
-    printf("Test 4: '%c' -> %s\n", test4, (bool)ft_isalnum(test4) ? "true" : "false");
-    printf("Test 5: '%c' -> %s\n", test5, (bool)ft_isalnum(test5) ? "true" : "false");
-    printf("Test 6: '%c' -> %s\n", test6, (bool)ft_isalnum(test6) ? "true" : "false");
-
-    return 0;
+	while (i < 10)
+	{
+		if (ft_isalnum(test_chars[i]))
+			printf("'%c' is alphanumeric ✅\n", test_chars[i]);
+		else
+			printf("'%c' is NOT alphanumeric ❌\n", test_chars[i]);
+		i++;
+	}
+	return (0);
 }*/

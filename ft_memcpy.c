@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:13:01 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/14 17:17:11 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:22:46 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ int main()
 	char *custom = ft_memcpy(dst, src, i);
 	printf("string after ft_memcpy: %s\n", custom);
 	return (0);
-}*/
+}
+*/

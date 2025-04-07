@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:38:54 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/14 20:25:09 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:01:38 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,43 +24,79 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strdup(const char *src)
+{
+	char	*dup;
+	int		i;
+
+	i = 0;
+	while (src[i])
+		i++;
+	dup = malloc(sizeof(char) * (i + 1));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
+
+	i = 0;
+	if (!dst && !src)
+		return (NULL);
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dst);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*copy;
 	size_t	s_len;
-	char	*str;
 
 	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-	{
-		str = malloc(1);
-		if (!str)
-			return (NULL);
-		str[0] = '\0';
-		return (str);
-	}
+		return (ft_strdup(""));
 	if (len > s_len - start)
 		len = s_len - start;
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
+	copy = malloc(len + 1);
+	if (!copy)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	ft_memcpy(copy, s + start, len);
+	copy[len] = '\0';
+	return (copy);
 }
 /*
 #include <stdio.h>
+#include <stdlib.h>
 
-int main()
+int	main(void)
 {	
 	char str[12] = "blablabloblo";
-	printf("\"%s\", after ft_substr - \"%s\"\n", str, ft_substr(str, 3, 3));
+	char *sub;
+
+	sub = ft_substr(str, 3, 3);
+	if (!sub)
+	{
+		printf("Memory allocation failed\n");
+		return (1);
+	}
+
+	printf("\"%s\", after ft_substr - \"%s\"\n", str, sub);
+
+	free(sub);
 	return (0);	
 }*/

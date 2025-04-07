@@ -6,14 +6,18 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:41:54 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/12 20:39:55 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:24:39 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
 
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
 	{
@@ -35,3 +39,22 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd (n + 48, fd);
 }
+/*
+#include "libft.h"
+
+int	main(void)
+{
+	ft_putnbr_fd(42, 1);
+	ft_putchar_fd('\n', 1);
+
+	ft_putnbr_fd(-2147483648, 1);
+	ft_putchar_fd('\n', 1);
+
+	ft_putnbr_fd(0, 1);
+	ft_putchar_fd('\n', 1);
+
+	ft_putnbr_fd(-123456789, 1);
+	ft_putchar_fd('\n', 1);
+
+	return (0);
+}*/

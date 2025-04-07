@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:21:22 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/12 17:56:22 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:34:46 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@ size_t	ft_strlen(const char *str)
 }
 /*
 #include <stdio.h>
-#include <string.h>
 
-int	main()
+int	main(void)
 {
-	char *str = "STRING";
-	char *str2 = "";
-	printf("strlen: %ld\t ft_strlen: %ld\n", strlen(str), ft_strlen(str));
-	printf("strlen: %ld\t ft_strlen: %ld\n", strlen(str2), ft_strlen(str2));
+	printf("Len of 'Hello': %zu\n", ft_strlen("Hello"));
+	printf("Len of '': %zu\n", ft_strlen(""));
+	printf("Len of NULL: %zu\n", ft_strlen(NULL));
 	return (0);
 }
 */

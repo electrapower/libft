@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 16:35:00 by asalniko          #+#    #+#             */
+/*   Updated: 2025/02/17 17:41:41 by asalniko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlen(const char *str)
@@ -12,9 +24,9 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    unsigned int	i;
+	unsigned int	i;
 	char			*str;
 
 	i = 0;
@@ -39,7 +51,6 @@ char	f(unsigned int i, char c) // prototyping inner f
 	printf("inner function: i = %d char = %c\n", i, c);
 	if ((c >= 'a' && c <= 'z'))
          return (c - ('a' - 'A'));
-	i++;
 	return (0);
 }
 

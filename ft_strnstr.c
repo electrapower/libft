@@ -6,32 +6,49 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:24:27 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/14 17:27:43 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:36:00 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
-	if (needle[0] == '\0')
-		return ((char *)haystack);
+	if (to_find[0] == '\0')
+		return ((char *)str);
 	i = 0;
-	while (haystack[i] != '\0' && i < len)
+	while (str[i] != '\0' && i < len)
 	{
-		if (haystack[i] == needle[0])
+		if (str[i] == to_find[0])
 		{
 			j = 0;
-			while (i + j < len && haystack[i + j] == needle[j]
-				&& needle[j] != '\0')
+			while (i + j < len && str[i + j] == to_find[j] 
+				&& to_find[j] != '\0')
 				j++;
-			if (needle[j] == '\0')
-				return ((char *)&haystack[i]);
+			if (to_find[j] == '\0')
+				return ((char *)&str[i]);
 		}
 		i++;
 	}
 	return (NULL);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	const char *big = "42 is the best?";
+	const char *little = "best";
+
+	char *res = ft_strnstr(big, little, 14);
+	printf("Found: %s\n", res ? res : "(null)");
+
+	res = ft_strnstr(big, little, 10);
+	printf("Found: %s\n", res ? res : "(null)");
+
+	return (0);
+}
+*/

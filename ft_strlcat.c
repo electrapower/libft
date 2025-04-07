@@ -6,13 +6,13 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:36:59 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/14 17:37:15 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:52:38 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	dest_len;
 	size_t	src_len;
@@ -21,22 +21,21 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	dest_len = 0;
 	src_len = 0;
-	while (dst[dest_len] != '\0' && dest_len < dstsize)
+	while (dest[dest_len] != '\0')
 		dest_len++;
 	while (src[src_len] != '\0')
 		src_len++;
-	if (dstsize <= dest_len)
-		return (dstsize + src_len);
+	if (size <= dest_len)
+		return (size + src_len);
 	i = dest_len;
 	j = 0;
-	while (src[j] != '\0' && i < dstsize - 1)
+	while (src[j] != '\0' && i < size - 1)
 	{
-		dst[i] = src[j];
+		dest[i] = src[j];
 		i++;
 		j++;
 	}
-	if (i < dstsize)
-		dst[i] = '\0';
+	dest[i] = '\0';
 	return (dest_len + src_len);
 }
 /*
@@ -46,7 +45,7 @@ int main()
 {
     char dest[20] = "Hello, ";
     char src[] = "world!";
-    unsigned int size = 15;
+    unsigned int size = 11;
 
     unsigned int result = ft_strlcat(dest, src, size);
 

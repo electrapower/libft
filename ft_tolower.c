@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:22:45 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/11 17:22:51 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:37:22 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,12 @@ int	ft_tolower(int c)
 /*
 #include <stdio.h>
 
-int main(void)
+int	main(void)
 {
-    char test_chars[] = {'A', 'Z', 'a', 'z', '0', '!', '@', 'M', 'm'};
-    int i = 0;
-
-    printf("testing ft_tolower:\n");
-    while (i < sizeof(test_chars) / sizeof(test_chars[0]))
-    {
-        char original = test_chars[i];
-        char converted = ft_tolower(original);
-        printf("Original: %c (%d) -> Lowercase: %c (%d)\n", original, original, converted, converted);
-        i++;
-    }
-
-    return 0;
+	printf("tolower(A): %c\n", ft_tolower('A')); // a
+	printf("tolower(Z): %c\n", ft_tolower('Z')); // z
+	printf("tolower(a): %c\n", ft_tolower('a')); // a
+	printf("tolower(5): %c\n", ft_tolower('5')); // 5
+	return (0);
 }
 */

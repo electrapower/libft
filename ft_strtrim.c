@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 16:36:29 by asalniko          #+#    #+#             */
+/*   Updated: 2025/04/07 21:14:06 by asalniko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlen(const char *str)
@@ -24,42 +36,66 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
+
+	i = 0;
+	if (!dst && !src)
+		return (NULL);
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dst);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*copy;
 	size_t	s_len;
-	char	*str;
 
 	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-	{
-		str = malloc(1);
-		if (!str)
-			return (NULL);
-		str[0] = '\0';
-		return (str);
-	}
+		return (ft_strdup(""));
 	if (len > s_len - start)
 		len = s_len - start;
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
+	copy = malloc(len + 1);
+	if (!copy)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	ft_memcpy(copy, s + start, len);
+	copy[len] = '\0';
+	return (copy);
 }
 
-char    *ft_strtrim(char const *s1, char const *set)
+char	*ft_strdup(const char *src)
 {
-    size_t	len;
-    size_t  i;
+	char	*dup;
+	int		i;
+
+	i = 0;
+	while (src[i])
+		i++;
+	dup = malloc(sizeof(char) * (i + 1));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	len;
+	size_t	i;
 	char	*str;
 
 	if (!s1 || !set)
@@ -69,16 +105,16 @@ char    *ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1);
 	while (len > 0 && ft_strchr(set, s1[len - 1]))
 		len--;
-    str = malloc(len + 1);
-    if (!str)
-        return (NULL);
-   i = 0;
-    while (i < len)
-    {
-        str[i] = s1[i];
-        i++;
-    }
-    str[i] = '\0';
+	str = malloc(len + 1);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	str[i] = '\0';
 	return (str);
 }
 /*
@@ -111,5 +147,4 @@ int main()
     else
         printf("memory allocation failed for second string\n");
     return 0;
-}
-*/
+}*/

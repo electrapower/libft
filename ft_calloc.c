@@ -6,31 +6,49 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:02:20 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/14 18:30:50 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:20:42 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
+#include <stddef.h>
+#include <stdint.h>
 
-/*
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < n)
-		((unsigned char *)s)[i++] == 0;
+		((unsigned char *)s)[i++] = 0;
 }
-*/
+
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	*array;
+	char	*str;
 
 	if (count != 0 && size > SIZE_MAX / count)
 		return (NULL);
-	array = malloc(count * size);
-	if (array == NULL)
+	str = malloc(count * size);
+	if (str == NULL)
 		return (NULL);
-	ft_bzero(array, count * size);
-	return (array);
+	ft_bzero(str, count * size);
+	return (str);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+
+{
+	int	amount = 5;
+	int *ptr = (int *)ft_calloc(amount, sizeof(int));
+	int	i = 0;
+	
+	while (i < amount)
+		printf("%d ", ptr[i++]);
+	printf("\n");
+	free(ptr);
+	return (0);
+}*/

@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:31:27 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/14 17:36:35 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:34:27 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,19 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	}
 	return (src_len);
 }
+/*
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char dst[20] = "oooooooooo";
+	char src[] = "XXXXXXXOOO";
+	size_t n = 3;
+
+	size_t custom = ft_strlcpy(dst, src, n);
+
+	printf("ft_strlcpy: %s (%zu)\n", dst, custom);
+	return (0);
+}
+*/

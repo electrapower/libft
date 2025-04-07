@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:06:50 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/12 18:34:05 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:20:29 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,17 +28,17 @@ int main(void)
     char test1[10] = "abcdefghi";
     char test2[10] = "123456789";
 
-    // before bzero
-    printf("Before bzero:\n");
+    // before ft_bzero
+    printf("Before ft_bzero:\n");
     printf("test1: [%s]\n", test1);
     printf("test2: [%s]\n", test2);
 
-    // calling bzero
-    bzero(test1, 5); // first 5 bytes
-    bzero(test2, 3); // first 3 bytes
+    // calling ft_bzero
+    ft_bzero(test1, 5); // first 5 bytes
+    ft_bzero(test2, 3); // first 3 bytes
 
-    // after bzero
-    printf("\nAfter bzero:\n");
+    // after ft_bzero
+    printf("\nAfter ft_bzero:\n");
 
     // checking first 5 bytes
     printf("test1 (first 5 bytes): [%c][%c][%c][%c][%c]\n", 
@@ -57,5 +57,6 @@ int main(void)
     printf("Remaining bytes in test1: [%s]\n", &test1[5]);
     printf("Remaining bytes in test2: [%s]\n", &test2[3]);
 
-    return 0;
-}*/
+    return (0);
+}
+*/

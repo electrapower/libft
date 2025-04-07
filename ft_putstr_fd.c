@@ -6,10 +6,11 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:02:08 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/11 18:05:27 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:24:52 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
@@ -23,24 +24,10 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 /*
-#include "libft.h"
-
-int main(void)
+int	main(void)
 {
-    // stdout
-    ft_putstr_fd("Hello, World!", 1);
-    ft_putstr_fd("\n", 1);
-
-    // stderr
-    ft_putstr_fd("This is an error message.", 2);
-    ft_putstr_fd("\n", 2);
-
-    // empty string
-    ft_putstr_fd("", 1);
-    ft_putstr_fd("\n", 1);
-
-    // new line symbols
-    ft_putstr_fd("Line1\nLine2\nLine3", 1);
-
-    return (0);
-}*/
+	ft_putstr_fd("Everything is fine!\n", 1);
+	ft_putstr_fd("Oops, something went wrong!\n", 2);
+	return (0);
+}
+*/

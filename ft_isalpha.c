@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:18:07 by asalniko          #+#    #+#             */
-/*   Updated: 2024/11/11 17:18:52 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:21:14 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,26 @@ int	ft_isalpha(int c)
 }
 /*
 #include <stdio.h>
-#include <stdbool.h> 
+#include <ctype.h>
 
-int main(void)
+int	main(void)
 {
-    char test1 = 'A';
-    char test2 = 'z';
-    char test3 = '5';
-    char test4 = '@';
-    char test5 = ' ';
-    char test6 = 127;   // ASCII 127 (DEL)
+	char	test_chars[] = {'A', 'z', '%', '9', ' ', '\n', 'b', '!', 'Z', 'm'};
+	int	i = 0;
 
-    printf("Test 1: '%c' -> %s\n", test1, (bool)ft_isalpha(test1) ? "true" : "false");
-    printf("Test 2: '%c' -> %s\n", test2, (bool)ft_isalpha(test2) ? "true" : "false");
-    printf("Test 3: '%c' -> %s\n", test3, (bool)ft_isalpha(test3) ? "true" : "false");
-    printf("Test 4: '%c' -> %s\n", test4, (bool)ft_isalpha(test4) ? "true" : "false");
-    printf("Test 5: '%c' -> %s\n", test5, (bool)ft_isalpha(test5) ? "true" : "false");
-    printf("Test 6: '%c' -> %s\n", test6, (bool)ft_isalpha(test6) ? "true" : "false");
+	while (i < 10)
+	{
+		char c = test_chars[i];
+		int original = isalpha(c) != 0;
+		int custom = ft_isalpha(c) != 0;
 
-    return 0;
-}*/
+		printf("char: '%c' | isalpha: %d | ft_isalpha: %d | %s\n",
+			c,
+			original,
+			custom,
+			(original == custom) ? "✅ match" : "❌ mismatch");
+		i++;
+	}
+	return (0);
+}
+*/
