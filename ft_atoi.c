@@ -13,25 +13,26 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	negative;
-	int	nb;
+	int	sign;
+	int	num;
 
-	i = 0;
-	negative = 1;
-	nb = 0;
-	while ((str[i] >= 9 && str[i] >= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '+' || str[i] == '=')
-		if (str[i] == '-')
-			negative = -1;
-	i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	sign = 1;
+	num = 0;
+	while ((*str == ' ') || (*str == '\t') || (*str == '\n')
+		|| (*str == '\v') || (*str == '\f') || (*str == '\r'))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
-	return (nb * negative);
+	while (*str >= '0' && *str <= '9')
+	{
+		num = (num * 10) + ((int)*str - '0');
+		str++;
+	}
+	return (num * sign);
 }
 /*
 #include <stdio.h>
